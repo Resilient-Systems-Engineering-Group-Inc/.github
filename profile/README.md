@@ -517,3 +517,238 @@ And to sharing the knowledge required to do so.
 **Resilient Systems Engineering Group, Inc**
 
 Engineering for continuity when conditions collapse.
+
+# RSEG Flagship Open‑Source Repositories
+
+This document contains **ready‑to‑use README.md content** for each flagship open‑source repository of **Resilient Systems Engineering Group (RSEG)**, plus **public demo scenarios** suitable for forums, conferences, and industrial showcases (including robotics and autonomous systems events).
+
+---
+
+## Repository: ros-resilience
+
+### README.md — ROS Resilience Layer
+
+#### Purpose
+
+**ros-resilience** extends ROS 2 with first‑class support for **degraded, offline, and partitioned operation**.
+
+Standard ROS deployments implicitly assume stable power, connectivity, and synchronization. This repository formalizes failure as an expected operating condition.
+
+#### Key Capabilities
+
+* node health monitoring and dependency graphs
+* explicit degradation policies (energy‑low, comms‑loss, sensor‑loss)
+* minimum viable control modes
+* recovery orchestration and restart logic
+
+#### Architecture
+
+```
+ROS 2 Nodes
+ ├─ Health Probes
+ ├─ Dependency Graph
+ ├─ Degradation Policy Engine
+ ├─ Offline State Store
+ └─ Recovery Orchestrator
+```
+
+#### Use Cases
+
+* field robotics
+* UAVs in GNSS‑challenged environments
+* industrial automation with intermittent connectivity
+
+#### Status
+
+Early R&D — interfaces stabilized first, performance optimized later.
+
+---
+
+### Demo Scenario (Conference)
+
+**Title:** Predictable Degradation in ROS‑Based Robotics
+
+**Scenario:**
+A mobile robot loses network connectivity and partial sensor input. Instead of stopping unpredictably, it switches to minimum viable control, preserves safety, and records state for later recovery.
+
+**Audience takeaway:**
+Failure handling is engineered, observable, and testable.
+
+---
+
+## Repository: gazebo-degraded-sim
+
+### README.md — Degraded Simulation Stack
+
+#### Purpose
+
+**gazebo-degraded-sim** adds failure injection and degradation modeling to Gazebo‑based robotic simulations.
+
+It enables reproducible testing of autonomy under stress.
+
+#### Failure Models
+
+* GNSS denial and spoofing
+* sensor noise and dropout
+* packet loss and network partition
+* power brown‑out
+* actuator degradation
+
+#### Scenario Definition
+
+Failures are defined declaratively via YAML and can be replayed deterministically.
+
+#### Use Cases
+
+* regression testing of autonomy stacks
+* certification‑oriented validation
+* training operators for degraded environments
+
+---
+
+### Demo Scenario (Conference)
+
+**Title:** Stress‑Testing Robots Before Reality Does
+
+**Scenario:**
+A simulated UAV experiences progressive GNSS degradation and power loss. Navigation gracefully degrades from GNSS → inertial → visual odometry.
+
+**Audience takeaway:**
+Failure scenarios can be tested before deployment.
+
+---
+
+## Repository: offline-autonomy-sdk
+
+### README.md — Offline‑First Multi‑Agent Autonomy SDK
+
+#### Purpose
+
+This SDK provides building blocks for **autonomous agents operating without continuous connectivity or centralized control**.
+
+#### Core Components
+
+* local planners and state machines
+* CRDT‑based state synchronization
+* peer discovery and mesh transport
+* resource‑aware policy engine
+
+#### Design Principles
+
+* offline by default
+* opportunistic synchronization
+* bounded decision making
+
+#### Use Cases
+
+* swarm robotics
+* disaster response
+* remote industrial inspection
+
+---
+
+### Demo Scenario (Conference)
+
+**Title:** Swarm Autonomy Without a Server
+
+**Scenario:**
+A group of robots coordinate task allocation locally after losing connection to a control center.
+
+**Audience takeaway:**
+Autonomy does not require a cloud.
+
+---
+
+## Repository: predictable-ai
+
+### README.md — Predictable Degradation AI Models
+
+#### Purpose
+
+**predictable-ai** focuses on AI models that **degrade controllably under resource constraints**.
+
+Instead of failing catastrophically, models simplify behavior.
+
+#### Features
+
+* multi‑tier inference modes
+* rule‑based fallbacks
+* frozen policy execution
+
+#### Metrics
+
+* latency vs accuracy curves
+* energy consumption profiles
+* safety envelope preservation
+
+---
+
+### Demo Scenario (Conference)
+
+**Title:** When AI Gets Weaker — Safely
+
+**Scenario:**
+An onboard vision model switches from semantic perception to geometric obstacle avoidance as compute and power degrade.
+
+**Audience takeaway:**
+Graceful AI degradation is a design choice.
+
+---
+
+## Repository: robot-knowledge-vault
+
+### README.md — Robot Knowledge Vault
+
+#### Purpose
+
+This repository treats **knowledge and documentation as critical infrastructure**.
+
+It provides offline‑ready, verifiable procedures for operation and recovery.
+
+#### Contents
+
+* failure playbooks
+* repair and diagnostics procedures
+* bills of materials
+* role‑based instructions
+
+#### Formats
+
+* Markdown and YAML
+* signed versions
+* offline bundles
+
+---
+
+### Demo Scenario (Conference)
+
+**Title:** Knowledge Survives When Networks Do Not
+
+**Scenario:**
+Operators restore a robotic system using offline procedures after a total network outage.
+
+**Audience takeaway:**
+Documentation can be as critical as hardware.
+
+---
+
+## Unified Public Demo (Forum / Expo)
+
+**Title:** Autonomous Systems Under Stress
+
+**Flow:**
+
+1. Simulated failures injected (gazebo-degraded-sim)
+2. ROS adapts via ros-resilience
+3. Agents coordinate using offline-autonomy-sdk
+4. AI degrades predictably
+5. Recovery guided by robot-knowledge-vault
+
+**Result:**
+A live demonstration of systems that continue operating — visibly and measurably — under loss of assumptions.
+
+---
+
+**Resilient Systems Engineering Group (RSEG)**
+
+Engineering autonomy, degradation, and recovery — by design.
